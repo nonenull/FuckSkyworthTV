@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_app" default="compile.module.app">
+  <dirname property="module.app.basedir" file="${ant.file.module_app}"/>
+  
+  <property name="module.jdk.home.app" value="${jdk.home.android_api_28_platform}"/>
+  <property name="module.jdk.bin.app" value="${jdk.bin.android_api_28_platform}"/>
+  <property name="module.jdk.classpath.app" value="jdk.classpath.android_api_28_platform"/>
+  
+  <property name="compiler.args.app" value="-encoding UTF-8 -source 7 -target 7 ${compiler.args}"/>
+  
+  <property name="app.output.dir" value="${module.app.basedir}/build/intermediates/classes/release"/>
+  <property name="app.testoutput.dir" value="${module.app.basedir}/build/intermediates/classes/test/release"/>
+  
+  <path id="app.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="app.module.production.classpath">
+    <path refid="${module.jdk.classpath.app}"/>
+    <path refid="library.gradle:_com.android.support:customview-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:interpolator-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.github.bumptech.glide:glide:3.8.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:collections:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:leanback-v17-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:documentfile-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:recyclerview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath"/>
+    <path refid="library.gradle:_android.arch.core:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-media-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:print-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:loader-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:viewpager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-fragment-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath"/>
+  </path>
+  
+  <path id="app.runtime.production.module.classpath">
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.gradle:_com.android.support:customview-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:interpolator-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.github.bumptech.glide:glide:3.8.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:collections:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:leanback-v17-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:documentfile-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:recyclerview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath"/>
+    <path refid="library.gradle:_android.arch.core:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-media-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:print-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:loader-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:viewpager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-fragment-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath"/>
+  </path>
+  
+  <path id="app.module.classpath">
+    <path refid="${module.jdk.classpath.app}"/>
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.gradle:_com.android.support:customview-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:interpolator-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.github.bumptech.glide:glide:3.8.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:collections:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:leanback-v17-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:documentfile-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:recyclerview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath"/>
+    <path refid="library.gradle:_android.arch.core:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-media-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:print-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:loader-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:viewpager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-fragment-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath"/>
+  </path>
+  
+  <path id="app.runtime.module.classpath">
+    <pathelement location="${app.testoutput.dir}"/>
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.gradle:_com.android.support:customview-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:interpolator-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.github.bumptech.glide:glide:3.8.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:collections:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:leanback-v17-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:documentfile-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:recyclerview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath"/>
+    <path refid="library.gradle:_android.arch.core:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-media-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:print-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:loader-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:viewpager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-fragment-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.app">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.app">
+    <patternset refid="excluded.from.module.app"/>
+  </patternset>
+  
+  <path id="app.module.sourcepath">
+    <dirset dir="${module.app.basedir}">
+      <include name="build/generated/source/apt/release"/>
+      <include name="build/generated/source/r/release"/>
+      <include name="build/generated/source/aidl/release"/>
+      <include name="build/generated/source/buildConfig/release"/>
+      <include name="build/generated/source/rs/release"/>
+      <include name="build/generated/res/rs/release"/>
+      <include name="build/generated/res/resValues/release"/>
+      <include name="src/main/res"/>
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.app" depends="compile.module.app.production,compile.module.app.tests" description="Compile module app"/>
+  
+  <target name="compile.module.app.production" depends="register.custom.compilers" description="Compile module app; production classes">
+    <mkdir dir="${app.output.dir}"/>
+    <javac2 destdir="${app.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.app}/javac">
+      <compilerarg line="${compiler.args.app}"/>
+      <bootclasspath refid="app.module.bootclasspath"/>
+      <classpath refid="app.module.production.classpath"/>
+      <src refid="app.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.app"/>
+    </javac2>
+    
+    <copy todir="${app.output.dir}">
+      <fileset dir="${module.app.basedir}/build/generated/source/apt/release">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/source/r/release">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/source/aidl/release">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/source/buildConfig/release">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/source/rs/release">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/res/rs/release">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/res/resValues/release">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/src/main/res">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.app.tests" depends="register.custom.compilers,compile.module.app.production" description="compile module app; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.app" description="cleanup module">
+    <delete dir="${app.output.dir}"/>
+    <delete dir="${app.testoutput.dir}"/>
+  </target>
+</project>

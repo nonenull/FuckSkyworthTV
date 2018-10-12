@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_homeshell" default="compile.module.homeshell">
+  <dirname property="module.homeshell.basedir" file="${ant.file.module_homeshell}"/>
+  
+  <property name="module.jdk.home.homeshell" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.homeshell" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.homeshell" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.homeshell" value="-encoding UTF-8 -source 7 -target 7 ${compiler.args}"/>
+  
+  <property name="homeshell.output.dir" value="${module.homeshell.basedir}/build/classes/production/homeshell"/>
+  <property name="homeshell.testoutput.dir" value="${module.homeshell.basedir}/build/classes/test/homeshell"/>
+  
+  <path id="homeshell.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="homeshell.module.production.classpath">
+    <path refid="${module.jdk.classpath.homeshell}"/>
+  </path>
+  
+  <path id="homeshell.runtime.production.module.classpath">
+    <pathelement location="${homeshell.output.dir}"/>
+  </path>
+  
+  <path id="homeshell.module.classpath">
+    <path refid="${module.jdk.classpath.homeshell}"/>
+    <pathelement location="${homeshell.output.dir}"/>
+  </path>
+  
+  <path id="homeshell.runtime.module.classpath">
+    <pathelement location="${homeshell.testoutput.dir}"/>
+    <pathelement location="${homeshell.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.homeshell">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.homeshell">
+    <patternset refid="excluded.from.module.homeshell"/>
+  </patternset>
+  
+  
+  <target name="compile.module.homeshell" depends="compile.module.homeshell.production,compile.module.homeshell.tests" description="Compile module homeshell"/>
+  
+  <target name="compile.module.homeshell.production" depends="register.custom.compilers" description="Compile module homeshell; production classes"/>
+  
+  <target name="compile.module.homeshell.tests" depends="register.custom.compilers,compile.module.homeshell.production" description="compile module homeshell; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.homeshell" description="cleanup module">
+    <delete dir="${homeshell.output.dir}"/>
+    <delete dir="${homeshell.testoutput.dir}"/>
+  </target>
+</project>
